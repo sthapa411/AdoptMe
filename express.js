@@ -4,13 +4,12 @@ const app = express();
 const PORT = 3000;
 
 // Serving static html files
-app.use(express.static('AdoptMe'))
+app.use(express.static('public'));
 
 // Need to handle routes for each page of the website
 app.get('/', (req, res) => {
-  res.send(__dirname + 'test.html')
+  res.sendFile(path.join(__dirname, '/public/test.html'))
 });
-
 
 // listen on the port
 app.listen(PORT, () => console.log(`The app is currently listening at http://localhost:${PORT}`));
