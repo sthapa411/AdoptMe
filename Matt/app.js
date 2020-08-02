@@ -27,7 +27,7 @@ async function sendData(data) {
     console.log(data.access_token);
 
     const resp = await fetch(
-        'https://api.petfinder.com/v2/animals',
+        'https://api.petfinder.com/v2/animals?type=dog&location=06095',
         {
             headers: {
                 Authorization: `Bearer ${data.access_token}`,
@@ -37,6 +37,7 @@ async function sendData(data) {
     
 
     const respData = await resp.json();
+    renderCard(respData);
 
     if (respData == null) {
 
@@ -47,11 +48,24 @@ async function sendData(data) {
     else {
 
       console.log('success')
-      console.log(respData)
+      //console.log(respData)
       return respData;
 
     }
-    
+
+}
+
+function renderCard(info) {
+    console.log(info);
+
+    $("#img").attr('src', info.animals[1].photos[0].medium);
+
+    console.log(info.animals[1].name);
+
+    $("#title").text(info.animals[1].name);
+
+    $("#dist").text(info.animals[1].distance + " Miles away");
+
 }
 
 
