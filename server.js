@@ -29,12 +29,6 @@ db.sequelize.sync().then(function() {
   });
 });
 
-
-
-
-
-
-
 //mongodb username and password 
 mangoose.Promise = global.Promise;
 // Connect to the Mongo DB

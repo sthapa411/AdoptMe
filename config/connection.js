@@ -1,19 +1,15 @@
-  
-var mysql = require("mysql2");
-var connection;
+// Set up MySQL connection.
+var mysql = require("mysql");
 
-if (process.env.JAWSDB_URL){
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-connection = mysql.createConnection({
-  host: "y0nkiij6humroewt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+var connection = mysql.createConnection({
+  host: "localhost",
   port: 3306,
-  user: "za4lqyq5l3gbp5fj",
-  password: "o9jj84q66mrnotuq",
-  database: "......_db"
+  user: "root",
+  password: "",
+  database: "adoptme_db"
 });
-}
 
+// Make connection.
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -22,4 +18,5 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
+// Export connection for our ORM to use.
 module.exports = connection;
