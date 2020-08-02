@@ -6,12 +6,11 @@ CREATE DATABASE adoptme_db;
 USE adoptme_db;
 
 CREATE TABLE animal (
-    id int NOT NULL AUTO_INCREMENT,
-    --image BLOB NOT NULL,
-    type varchar(100) NOT NULL,
-    location varchar(255) NOT NULL,
-    url 
-    PRIMARY KEY id
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    image BLOB NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 --INSERT INTO dst_tbl (i, s) SELECT val, name FROM src_tbl;
