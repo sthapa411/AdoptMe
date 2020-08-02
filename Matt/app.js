@@ -2,6 +2,7 @@ const key = 'cxyhnll5ScFfHdAHD2pKJ0hAOREZIlaSFRx6MnajQy35qxKJVn';
 
 const secret = 'O4kyEkoJkbFd5OfhhPaYja1c8GHtSPyI9W1eCyBc';
 
+
 async function getToken() {
     let parm = new URLSearchParams();
 
@@ -66,7 +67,32 @@ function renderCard(info) {
 
     $("#dist").text(info.animals[1].distance + " Miles away");
 
-}
+
+
+    for(let i in info.animals){
+        console.log(info.animals[i].name);
+
+        $("#cards").append(
+            `
+            <div class="row">
+                <div class="col s6 m4">
+                    <div class="card">
+                        <div class="card-image">
+                        <img id="img" src="${info.animals[i].photos[0].medium}" alt="pet">
+                        <span id="title" class="card-title">${info.animals[i].name}</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="card-content">
+                        <p id="dist">${info.animals[i].distance} Miles away</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+        )
+       
+    }
+}    
 
 
 getToken();
