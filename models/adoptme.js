@@ -2,7 +2,7 @@
 var orm = require("../config/orm.js");
 
 var adoptme = {
-  all: function(cb) {
+  selectAll: function(cb) {
     orm.all("animal", function(res) {
       cb(res);
     });
@@ -25,5 +25,5 @@ var adoptme = {
   }
 };
 
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for the controller (adoptmeController.js).
 module.exports = adoptme;
