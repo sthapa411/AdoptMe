@@ -4,6 +4,8 @@ const secret = 'O4kyEkoJkbFd5OfhhPaYja1c8GHtSPyI9W1eCyBc';
 
 var image;
 
+var x = 0;
+
 
 async function getToken() {
     let parm = new URLSearchParams();
@@ -86,23 +88,38 @@ function renderCard(info) {
                 <div class="col s6 m4">
                     <div class="card">
                         <div class="card-image">
-                            <img id="img" src="${image}" alt="pet">
+                            <img id="img${i}" src="${image}" alt="pet">
                         </div>
                         <div class="card-content">
-                            <a class="btn-floating right waves-effect waves-light red"><i class="material-icons">add</i></a>
-                            <p id="dist">${info.animals[i].name} \n ${info.animals[i].distance} Miles away</p>
+                            <p id="dist${i}">${info.animals[i].name}      ${info.animals[i].distance} Miles away</p>
+                            <a id= "fav${i}" class="btn-floating right waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-action">
-                             <a href="${info.animals[i].url}">More info</a>
+                             <a id= "url${i}" href="${info.animals[i].url}">More info</a>
                         </div>
                     </div>
                 </div>
             </div>
         `
-        )
-       
+        );
+       x++;
     }
-}    
+    
+    saveData(x);
+}
+
+function saveData(count) {
+
+    for(let i = 0; i < count; i++) {
+        $("#fav"+i).click(() => {
+            console.log($("#dist" + i).text());
+            console.log($("#img" + i).attr("src"))
+            console.log($("#url" + i).attr("href"))
+        });
+    }
+
+}
+
 
 
 getToken();
