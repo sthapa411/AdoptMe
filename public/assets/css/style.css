@@ -663,3 +663,9 @@ footer address {
 	line-height: 18px;
 	margin-top: -1px;
 }
+
+
+.card-image {
+	height: 300px;
+	overflow: scroll;
+}

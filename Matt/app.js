@@ -2,6 +2,8 @@ const key = 'cxyhnll5ScFfHdAHD2pKJ0hAOREZIlaSFRx6MnajQy35qxKJVn';
 
 const secret = 'O4kyEkoJkbFd5OfhhPaYja1c8GHtSPyI9W1eCyBc';
 
+var image;
+
 
 async function getToken() {
     let parm = new URLSearchParams();
@@ -28,7 +30,7 @@ async function sendData(data) {
     console.log(data.access_token);
 
     const resp = await fetch(
-        'https://api.petfinder.com/v2/animals?type=dog&location=06095',
+        'https://api.petfinder.com/v2/animals?type=dog&location=06064',
         {
             headers: {
                 Authorization: `Bearer ${data.access_token}`,
@@ -69,21 +71,29 @@ function renderCard(info) {
 
 
 
+ 
+
     for(let i in info.animals){
         console.log(info.animals[i].name);
 
+        if(info.animals[i].photos.length != 0) {
+            image = info.animals[i].photos[0].full;
+        }
+        
         $("#cards").append(
             `
-            <div class="row">
+            <div>
                 <div class="col s6 m4">
                     <div class="card">
                         <div class="card-image">
-                        <img id="img" src="${info.animals[i].photos[0].medium}" alt="pet">
-                        <span id="title" class="card-title">${info.animals[i].name}</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            <img id="img" src="${image}" alt="pet">
                         </div>
                         <div class="card-content">
-                        <p id="dist">${info.animals[i].distance} Miles away</p>
+                            <a class="btn-floating right waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            <p id="dist">${info.animals[i].name} \n ${info.animals[i].distance} Miles away</p>
+                        </div>
+                        <div class="card-action">
+                             <a href="${info.animals[i].url}">More info</a>
                         </div>
                     </div>
                 </div>
