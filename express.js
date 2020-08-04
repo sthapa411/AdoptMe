@@ -23,6 +23,10 @@ app.get('/img', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/assets/images/slide.jpg'))
 });
 
+app.get('/img2', (req, res) => { 
+  res.sendFile(path.join(__dirname, '/public/assets/images/adopt_me.png'))
+});
+
 // Get request for favorites page of the website => error: cannot get favorites.html => solved by: 
 app.get('/favorites', (req, res) => {
   res.render('favorites')
