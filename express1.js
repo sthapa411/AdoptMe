@@ -1,5 +1,5 @@
 
-
+  
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -25,21 +25,10 @@ app.get('/img', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/assets/images/slide.jpg'))
 });
 
-
 // Get request for script file
 app.get('/js', (req,res) => {
     res.sendFile(path.join(__dirname,'/matt/app.js'))
 })
-
-app.get('/img2', (req, res) => { 
-  res.sendFile(path.join(__dirname, '/public/assets/images/adopt_me.png'))
-});
-
-// Get request for favorites page of the website => error: cannot get favorites.html => solved by: 
-app.get('/favorites', (req, res) => {
-  res.render('favorites')
-});
-
 
 // listen on the port
 app.listen(PORT, () => console.log(`The app is currently listening at http://localhost:${PORT}`));

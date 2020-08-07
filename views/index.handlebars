@@ -3,7 +3,7 @@
     <div class="grid_12">
      <a href="index.html"><img src="/img2" alt=""></a>
       <div class="menu_block">
-        <nav>
+        <nav class="black">
           <ul class="sf-menu">
             <li class="current"><a href="/">Home</a></li>
             <li><a href="favorites">Favorites</a></li>
@@ -40,12 +40,12 @@
 
        <div class = "col s6">
         
-           <select>
+           <select id="animalType">
               <option value = "" disabled selected>Select Type</option>
-              <option value = "1">Cat</option>
-              <option value = "2">Dog</option>
-              <option value = "3">Bird</option>
-              <option value = "3">Rabbit</option>
+              <option >Cat</option>
+              <option >Dog</option>
+              <option >Bird</option>
+              <option >Rabbit</option>
            </select>               
         </div>
         
@@ -54,7 +54,7 @@
           
       </div>
       
-      <button id="searchBtn" class="btn" type="submit" name="action">Search</button> 
+      <button id="searchBtn" class="btn waves-effect waves-light red" name="results">Search</button> 
       </form>
 
 
@@ -67,6 +67,15 @@
       <h2>Pets for Adoption</h2>
     </div>
     
+
+    <div class="row" id="cards">
+
+    </div>
+
+
+<script src="/js"></script>
+
+
 </div>
 
 <footer>
