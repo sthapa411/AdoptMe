@@ -28,11 +28,23 @@ async function getToken() {
     console.log(obj);
      sendData(obj)
 }
+
 async function sendData(data) {
     console.log(data.access_token);
 
+    $("#searchBtn").click(async () => {
+        event.preventDefault();
+
+        $("#cards").empty();
+
+        let zipCode = $("#zip").val();
+        let type = $("#animalType").val();
+
+        console.log(zipCode + " " + type)
+
+
     const resp = await fetch(
-        'https://api.petfinder.com/v2/animals?type=dog&location=06064',
+        `https://api.petfinder.com/v2/animals?type=${type}&location=${zipCode}`,
         {
             headers: {
                 Authorization: `Bearer ${data.access_token}`,
@@ -57,23 +69,12 @@ async function sendData(data) {
       return respData;
 
     }
+;    });
 
 }
 
 function renderCard(info) {
     console.log(info);
-
-    $("#img").attr('src', info.animals[1].photos[0].medium);
-
-    console.log(info.animals[1].name);
-
-    $("#title").text(info.animals[1].name);
-
-    $("#dist").text(info.animals[1].distance + " Miles away");
-
-
-
- 
 
     for(let i in info.animals){
         console.log(info.animals[i].name);
@@ -85,7 +86,7 @@ function renderCard(info) {
         $("#cards").append(
             `
             <div>
-                <div class="col s6 m4">
+                <div class="col s6 m6">
                     <div class="card">
                         <div class="card-image">
                             <img id="img${i}" src="${image}" alt="pet">
@@ -112,9 +113,16 @@ function saveData(count) {
 
     for(let i = 0; i < count; i++) {
         $("#fav"+i).click(() => {
-            console.log($("#dist" + i).text());
-            console.log($("#img" + i).attr("src"))
-            console.log($("#url" + i).attr("href"))
+
+            $("#cards").append(" <h1> test </h1>");
+        
+            let fav = [{
+                distance: $("#dist" + i).text(),
+                image: $("#img" + i).attr("src"),
+                url: $("#url" + i).attr("href")
+            }]
+
+            console.log(fav);
         });
     }
 
