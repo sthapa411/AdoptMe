@@ -26,10 +26,19 @@ app.get('/img', (req, res) => {
 });
 
 
-// Get request for script file
+// Get request for script files
 app.get('/js', (req,res) => {
     res.sendFile(path.join(__dirname,'/matt/app.js'))
+});
+
+app.get('/favjs', (req,res) => {
+  res.sendFile(path.join(__dirname,'/Matt/fav.js'))
 })
+
+//get for database
+app.get('/db', (req,res) => {
+  res.sendFile(path.join(__dirname, '/matt/test.json'));
+});
 
 app.get('/img2', (req, res) => { 
   res.sendFile(path.join(__dirname, '/public/assets/images/adopt_me.png'))
