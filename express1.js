@@ -27,8 +27,24 @@ app.get('/img', (req, res) => {
 
 // Get request for script file
 app.get('/js', (req,res) => {
-    res.sendFile(path.join(__dirname,'/matt/app.js'))
+  res.sendFile(path.join(__dirname,'/matt/app.js'))
 })
+
+app.get('/favjs', (req,res) => {
+  res.sendFile(path.join(__dirname,'/Matt/fav.js'))
+})
+
+//get for database
+app.get('/db', (req,res) => {
+  res.sendFile(path.join(__dirname, '/matt/test.json'));
+});
+
+
+
+// Get request for favorites page of the website => error: cannot get favorites.html => solved by: 
+app.get('/favorites', (req, res) => {
+  res.render('favorites')
+});
 
 // listen on the port
 app.listen(PORT, () => console.log(`The app is currently listening at http://localhost:${PORT}`));
