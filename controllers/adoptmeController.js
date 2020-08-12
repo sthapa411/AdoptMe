@@ -12,7 +12,7 @@ router.get("/", function(req, res) {
       animal: data
     };
     console.log(hbsObject);
-   // should it be "favorites" ------- res.render("index", hbsObject);   
+   res.render("favorites", hbsObject);   
   });
 });
 
