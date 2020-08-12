@@ -28,11 +28,11 @@ app.get('/img', (req, res) => {
 
 // Get request for script files
 app.get('/js', (req,res) => {
-    res.sendFile(path.join(__dirname,'/matt/app.js'))
+    res.sendFile(path.join(__dirname,'/public/app.js'));
 });
 
 app.get('/favjs', (req,res) => {
-  res.sendFile(path.join(__dirname,'/Matt/fav.js'))
+  res.sendFile(path.join(__dirname,'/public/fav.js'));
 })
 
 //get for database

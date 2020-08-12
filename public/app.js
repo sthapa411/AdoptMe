@@ -1,3 +1,5 @@
+const e = require("express");
+
 //user secret to be moved to .env file
 const key = "cxyhnll5ScFfHdAHD2pKJ0hAOREZIlaSFRx6MnajQy35qxKJVn";
 const secret = "O4kyEkoJkbFd5OfhhPaYja1c8GHtSPyI9W1eCyBc";
@@ -79,6 +81,9 @@ function renderCard(info) {
     //checks to see if there is an image to prevent erroring out 
     if (info.animals[i].photos.length != 0) {
      image = info.animals[i].photos[0].full;
+    }
+    else {
+        image = "#"
     }
 
     $("#cards").append(
