@@ -1,12 +1,12 @@
 <header>
   <div class="container_12">
     <div class="grid_12">
-     <a href="index.html"><img src="images/adopt_me.png" alt=""></a>
+     <a href="index.html"><img src="/img2" alt=""></a>
       <div class="menu_block">
         <nav>
           <ul class="sf-menu">
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="favorites.html">Favorites</a></li>
+            <li class="current"><a href="/">Home</a></li>
+            <li><a href="favorites">Favorites</a></li>
             
           </ul>
         </nav class = "nav">
@@ -18,7 +18,7 @@
 </header>
 
 <div class = "container_12">
-  <img src="images/slide.jpg" alt="cat">
+  <img src="/img" alt="cat">
 </div>
 
  
@@ -30,14 +30,35 @@
       <h2>Enter your location in the search below to find pets in your area!</h2>
       <br>
       
+      <div class = row>
+      <div class="col s6">
       <form id="form">
       <div class="form-group">
-        <input type = "text" id = "zip" placeholder="Enter your Zipcode">
+        <input type = "search" id ="zip" placeholder="Enter your Zipcode">
       </div>
+      </div>
+
+       <div class = "col s6">
+        
+           <select id="animalType">
+              <option value = "" disabled selected>Select Type</option>
+              <option value = "Cat">Cat</option>
+              <option value = "Dog">Dog</option>
+              <option value = "Bird">Bird</option>
+              <option value = "Rabbit">Rabbit</option>
+           </select>               
+        </div>
+        
+       
+          
+          
+      </div>
+      
+      <button id="searchBtn" class="btn" type="submit" name="action">Search</button> 
       </form>
 
 
-      <button id="searchBtn" class="btn" type="submit" name="action">Search</button> 
+     
     </div>
     
 <div class="content page1">
@@ -45,6 +66,13 @@
     <div class="grid_12"> 
       <h2>Pets for Adoption</h2>
     </div>
+
+     <div class="row" id="cards">
+
+    </div>
+
+
+
     
 </div>
 
