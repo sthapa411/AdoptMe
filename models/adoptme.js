@@ -2,7 +2,7 @@ var orm = require("../config/orm.js");
 
 var adoptme = {
   selectAll: function(cb) {
-    orm.all("animal", function(res) {
+    orm.selectAll("animal", function(res) {
       cb(res);
     });
   },
