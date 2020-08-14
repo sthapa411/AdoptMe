@@ -117,6 +117,7 @@ function saveData(count) {
   //loops through each button and adds an event listener to it   
   for (let i = 0; i < count; i++) {
     $("#fav" + i).click(() => {
+      event.preventDefault();
       $("#cards").append(" <h1> test </h1>");
       //creates an object array with the cards info and logs it to the console on click  
       let fav = 
@@ -125,12 +126,16 @@ function saveData(count) {
           name: $("#dist" + i).text(),
           url: $("#url" + i).attr("href"),
         };
+        
         $.ajax("/api/animal", {
             type: "POST",
-            data: fav
+            data: JSON.stringify(fav),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
         }).then(function(){
             console.log("New pet added");
-            location.reload();
+            
         });;
 
       console.log(fav);
