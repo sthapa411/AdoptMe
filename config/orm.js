@@ -28,7 +28,7 @@ function createQmarks(num) {
 var orm = {
 selectAll: function(table, cb) {
     var dbQuery = "SELECT * FROM " + table + ";";
-
+    console.log(dbQuery)
     connection.query(dbQuery, function(err, res) {
         if (err){
             throw err;
