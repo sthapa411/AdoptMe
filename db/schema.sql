@@ -1,3 +1,4 @@
+
 -- Drops the adoptme if it exists currently --
 DROP DATABASE IF EXISTS adoptme_db;
 -- Creates the "adoptme_db" database --
